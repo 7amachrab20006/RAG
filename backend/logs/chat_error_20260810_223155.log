@@ -1,0 +1,26 @@
+Exception during /api/chat:
+Traceback (most recent call last):
+  File "C:\Users\SETUP\Desktop\RAG project\backend\app\core\processor.py", line 86, in get_conversation_chain
+    from langchain.chains.question_answering import load_qa_chain
+ModuleNotFoundError: No module named 'langchain.chains'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\SETUP\Desktop\RAG project\backend\app\core\processor.py", line 108, in query_vector_store
+    chain = get_conversation_chain()
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SETUP\Desktop\RAG project\backend\app\core\processor.py", line 90, in get_conversation_chain
+    from langchain.chains import load_qa_chain
+ModuleNotFoundError: No module named 'langchain.chains'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\SETUP\Desktop\RAG project\backend\app\main.py", line 87, in chat
+    res = processor.query_vector_store(question, top_k=top_k)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SETUP\Desktop\RAG project\backend\app\core\processor.py", line 115, in query_vector_store
+    with open(os.path.join(log_dir, f'chain_init_error_{ts}.log'), 'w', encoding='utf-8') as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 22] Invalid argument: 'C:\\Users\\SETUP\\Desktop\\RAG project\\backend\\backend\\logs\\chain_init_error_2026-08-10T22:31:55.410494.log'

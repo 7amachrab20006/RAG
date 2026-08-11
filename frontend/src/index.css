@@ -1,0 +1,44 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  @apply bg-slate-950 text-slate-100;
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* focus-visible outlines for accessibility */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(59,130,246,0.9); /* cyan-500 */
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* small fade-in animation for messages and subtle transitions */
+.fade-in {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in, .fade-in.visible {
+    transition: none;
+    transform: none;
+  }
+}
+
